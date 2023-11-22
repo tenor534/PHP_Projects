@@ -1,0 +1,69 @@
+
+I- https://docs.magicthegathering.io/  [II]
+- https://www.qrtag.net/api/  [III]
+- https://wizard-world-api.herokuapp.com/swagger/index.html  [IIIII]
+- https://openwhyd.github.io/openwhyd/API  [IIII]
+- https://dictionaryapi.dev/  [IIIIII]
+- https://github.com/cheatsnake/emojihub  [II]
+- https://api.chucknorris.io/  [III]
+- https://wolnelektury.pl/api/  [II]
+
+
+
+---------------------
+
+En utilisant l'API n°5 https://dictionaryapi.dev/
+Recréer rapidement (avec ou sans CSS) la page suivante avec les données correspondantes dans l'URL :
+https://www.larousse.fr/dictionnaires/francais/bonjour/10161
+
+
+
+Installation de Postman
+https://www.postman.com/postman/workspace/postman-public-workspace/folder/12959542-dcbf91c9-f0a6-43c0-adfd-66531b6998a4
+https://www.postman.com/downloads/
+
+https://tutorialsclass.com/php-rest-api-get-data-using-curl/
+PHP program to GET REST API data using cURL
+In the following PHP program, we will use a sample PHP CURL function to get employee’s data and displays them.
+<?php
+// Initiate curl session in a variable (resource)
+$curl_handle = curl_init();
+
+$url = "https://dummy.restapiexample.com/api/v1/employees";
+
+// Set the curl URL option
+curl_setopt($curl_handle, CURLOPT_URL, $url);
+
+// This option will return data as a string instead of direct output
+curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+
+// Execute curl & store data in a variable
+$curl_data = curl_exec($curl_handle);
+
+curl_close($curl_handle);
+
+// Decode JSON into PHP array
+$response_data = json_decode($curl_data);
+
+// Print all data if needed
+// print_r($response_data);
+// die();
+
+// All user data exists in 'data' object
+$user_data = $response_data->data;
+
+// Extract only first 5 user data (or 5 array elements)
+$user_data = array_slice($user_data, 0, 4);
+
+// Traverse array and print employee data
+foreach ($user_data as $user) {
+	echo "name: ".$user->employee_name;
+	echo "<br />";
+}
+
+?>
+
+Code Explanation
+First, we need to initiate a curl and pass your API URL. Then execute CURL & store received data. As API URL returns JSON data, we need to decode it using json_decode. Now you have all data as an array which you can traverse using foreach and display accordingly.
+
+In the next chapters, we will use cURL methods to perform an update, create and delete operations using API data.
